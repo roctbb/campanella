@@ -1,5 +1,5 @@
 var langEN = {
-	greeting: "Hello",
+	greeting: ")\nHello",
 	title: "Title",
 	header: "Campanella - Bell management system",
 	languageText: "Language:",

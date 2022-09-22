@@ -60,13 +60,13 @@ def set_led_color(color) :
 		GPIO.output(GPIO_LED_GREEN_PIN, False)
 		GPIO.output(GPIO_LED_BLUE_PIN, False)
 
-print ""
-print ""
-print "Programma python scritto da Michele Lizzit"
-print "Written by Michele Lizzit"
-print "Last update 25 Apr 2016"
-print ""
-print ""
+print("")
+print("")
+print("Programma python scritto da Michele Lizzit")
+print("Written by Michele Lizzit")
+print("Last update 25 Apr 2016")
+print("")
+print("")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -85,7 +85,7 @@ while (1) :
 		if (prev_demone == 0) :
 			prev_demone = 1
 			
-			print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: CAMPANELLA DAEMON CRASHED, setting led color to red"
+			print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: CAMPANELLA DAEMON CRASHED, setting led color to red")
 			command = "logger " + time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: CAMPANELLA DAEMON CRASHED, setting led color to red";
 			os.system(command)
 		set_led_color("red")
@@ -94,7 +94,7 @@ while (1) :
 	if not ('power_daemon.py' in output):
 		if (prev_power_daemon == 0) :
 			prev_power_daemon = 1
-			print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: POWER DAEMON CRASHED, setting led color to red"
+			print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: POWER DAEMON CRASHED, setting led color to red")
 			command = "logger " + time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: POWER DAEMON CRASHED, setting led color to red"
 			os.system(command)
 		set_led_color("red")
@@ -104,7 +104,7 @@ while (1) :
 	if not ('serial_daemon.p' in output):
 		if (prev_serial_daemon == 0) :
 			prev_serial_daemon = 1
-			print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: SERIAL DAEMON CRASHED, setting led color to red"
+			print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: SERIAL DAEMON CRASHED, setting led color to red")
 			command = "logger " + time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: SERIAL DAEMON CRASHED, setting led color to red";
 			os.system(command)
 		set_led_color("red")
@@ -114,7 +114,7 @@ while (1) :
 	if not ('lcd_daemon.py' in output):
 		if (prev_lcd_daemon == 0) :
 			prev_lcd_daemon = 1
-			print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: LCD DAEMON CRASHED, setting led color to red"
+			print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: LCD DAEMON CRASHED, setting led color to red")
 			command = "logger " + time.strftime("[%H:%M:%S %d/%m/%Y") + "] Watchdog: LCD DAEMON CRASHED, setting led color to red";
 			os.system(command)
 		set_led_color("red")

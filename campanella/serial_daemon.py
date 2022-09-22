@@ -33,11 +33,11 @@ import serial
 
 SERIAL_PORT="/dev/ttyAMA0"
 
-print ""
-print "Programma python scritto da Michele Lizzit"
-print "Written by Michele Lizzit"
-print "Last update 25 Apr 2016"
-print ""
+print("")
+print("Programma python scritto da Michele Lizzit")
+print("Written by Michele Lizzit")
+print("Last update 25 Apr 2016")
+print("")
 
 
 
@@ -52,13 +52,13 @@ while (1) :
 		if "b" in val :
 			arduino.write(str(round(time.time(),0))[:-2] + ';')
 		else :
-			print "Error: received unexpected data: " + val;
+			print("Error: received unexpected data: " + val)
 	except OSError:
-		print "Serial error, retrying in 10 seconds..."
+		print("Serial error, retrying in 10 seconds...")
 		time.sleep(10)
 	except serial.serialutil.SerialException:
-		print "Device reports readiness to read but no data returned, device disconnected? retrying in 3 seconds..."
+		print("Device reports readiness to read but no data returned, device disconnected? retrying in 3 seconds...")
 		time.sleep(3)
-		print "Re-opening serial port " + SERIAL_PORT + "..."
+		print("Re-opening serial port " + SERIAL_PORT + "...")
 		arduino = serial.Serial(SERIAL_PORT)
 	

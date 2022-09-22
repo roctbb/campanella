@@ -129,12 +129,12 @@ write_error("") #cancella tutti gli errori
 startTime = round(time.time())
 
 if not(os.path.isfile("/opt/campanella/OPTIONS.txt")) :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file OPTIONS.txt does not exist"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file OPTIONS.txt does not exist")
 	set_led_color("red")
 	write_error(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file OPTIONS.txt does not exist")
 	exit()
 if not(os.path.isfile("/opt/campanella/data/suono.wav")) :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file suono.wav does not exist"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file suono.wav does not exist")
 	set_led_color("red")
 	write_error(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, file suono.wav does not exist")
 	exit()
@@ -149,9 +149,9 @@ for line in options_file:
 options_file.close()
 
 if (len(options) == int(options[0])) :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] File OK"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] File OK")
 else :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, line mismatch in OPTIONS.txt"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, line mismatch in OPTIONS.txt")
 	set_led_color("red")
 	write_error(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, line mismatch in OPTIONS.txt")
 	exit()
@@ -181,17 +181,17 @@ try:
 	suona_campanella_ora = int(options[7])
 	num_options = int(options[8])
 except ValueError:
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, syntax error in OPTIONS.txt"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, syntax error in OPTIONS.txt")
 	set_led_color("red")
 	write_error(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: FATAL ERROR, syntax error in OPTIONS.txt")
 	exit()
 if (run == 0) :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: disabled by OPTIONS.txt"
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: disabled by OPTIONS.txt")
 	exit()
 
 tmp = 0
 while (tmp + num_options < len(options)) :
-	print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Found new alarm in OPTIONS.txt: " + options[tmp + num_options]
+	print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Found new alarm in OPTIONS.txt: " + options[tmp + num_options])
 	orari.append(options[tmp + num_options])
 	tmp += 1
 
@@ -199,11 +199,11 @@ while (tmp + num_options < len(options)) :
 orari = [e.rstrip() for e in orari]
 
 
-print ""
-print "Programma python scritto da Michele Lizzit"
-print "Written by Michele Lizzit - lizzit.it"
-print "Last update 24 Sept 2017"
-print ""
+print("")
+print("Programma python scritto da Michele Lizzit")
+print("Written by Michele Lizzit - lizzit.it")
+print("Last update 24 Sept 2017")
+print("")
 
 if (suona_campanella_ora) :
 	campanella_suona(1)
@@ -213,7 +213,7 @@ while (1) :
 	suonato = 0
 	prev_time = time.strftime("%H:%M:%S")
 
-	print orari;
+	print(orari)
 	
 	#controlla se è ora di suonare la campanella
 	if (time.strftime("%u %H:%M:%S") in orari) or (time.strftime("%H:%M:%S") in orari) or (time.strftime("%F %T") in orari) :
@@ -237,7 +237,7 @@ while (1) :
 
 	#verifica se ha saltato un secondo
 	if (tmp <= 4) and (suonato == 0) :
-		print time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: ERROR, did the system time change or is the system overloaded?"
+		print(time.strftime("[%H:%M:%S %d/%m/%Y") + "] Campanella daemon: ERROR, did the system time change or is the system overloaded?")
 	
 	#controllo pressione del pulsante
 	input_value = GPIO.input(GPIO_BUTTON_PIN)

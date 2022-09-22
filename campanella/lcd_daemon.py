@@ -32,11 +32,11 @@ import time
 import RPi.GPIO as GPIO
 from RPLCD import CharLCD, cleared, cursor
 
-print ""
-print "Programma python scritto da Michele Lizzit"
-print "Written by Michele Lizzit"
-print "Last update 25 Apr 2016"
-print ""
+print("")
+print("Programma python scritto da Michele Lizzit")
+print("Written by Michele Lizzit")
+print("Last update 25 Apr 2016")
+print("")
 
 campanella = (
 	0b00100,
@@ -57,9 +57,9 @@ lcd.create_char(0, campanella)
 
 while (1) :
 	lcd.clear()
-	lcd.write_string(unichr(0))
+	lcd.write_string(chr(0))
 	lcd.write_string(u'Gestione campanelle')
 	lcd.cursor_pos = (1, 0)
 	timeStr = time.strftime("%H:%M:%S %d/%m")
 	lcd.write_string(timeStr)
-	time.sleep(1);
+	time.sleep(1)

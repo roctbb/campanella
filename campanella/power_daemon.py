@@ -36,13 +36,13 @@ import RPi.GPIO as GPIO
 
 time.sleep(3)
 
-print ""
-print ""
-print "Programma python scritto da Michele Lizzit"
-print "Written by Michele Lizzit"
-print "Last update 25 Apr 2016"
-print ""
-print ""
+print("")
+print("")
+print("Programma python scritto da Michele Lizzit")
+print("Written by Michele Lizzit")
+print("Last update 25 Apr 2016")
+print("")
+print("")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
